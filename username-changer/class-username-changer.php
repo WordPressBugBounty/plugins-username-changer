@@ -1,16 +1,15 @@
 <?php
 /**
- * Plugin Name:     Username Changer
- * Plugin URI:      https://gitlab.com/widgitlabs/wordpress/Username-Changer
- * Description:     Change usernames easily
- * Author:          Widgit Team
- * Author URI:      https://widgit.io
- * Version:         3.2.2
- * Text Domain:     username-changer
- * Domain Path:     languages
- *
- * @package         UsernameChanger
- * @author          Daniel J Griffiths <dgriffiths@evertiro.com>
+ * Plugin Name: Username Changer
+ * Plugin URI: https://www.digitalme.cc
+ * Description: Change usernames easily
+ * Author: DigitalME
+ * Author URI: https://www.digitalme.cc
+ * Version: 3.2.3
+ * Text Domain: username-changer
+ * Domain Path: languages
+ * Tested up to: 6.8.3
+ * Requires at least: 3.0
  */
 
 // Exit if accessed directly.
