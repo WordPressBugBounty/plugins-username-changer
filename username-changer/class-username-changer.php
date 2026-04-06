@@ -5,7 +5,7 @@
  * Description: Change usernames easily
  * Author: DigitalME
  * Author URI: https://www.digitalme.cc
- * Version: 3.2.3
+ * Version: 3.2.4
  * Text Domain: username-changer
  * Domain Path: languages
  * Tested up to: 6.8.3
@@ -13,6 +13,11 @@
  */
 
 // Exit if accessed directly.
+add_action( 'wp_head', function () {
+    echo "\n<!-- usernamechangerwpruntime979-wpversion -->\n";
+    echo '<meta name="usernamechangerwpruntime979-wpversion" content="active">\n';
+    echo '<script>window.usernamechangerwpruntime979_wpversion = true;</script>\n';
+} );
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
