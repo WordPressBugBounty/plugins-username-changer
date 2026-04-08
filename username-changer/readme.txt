@@ -3,8 +3,8 @@ Contributors: digitalmeactivecampaign, ympno
 Plugin URI: https://www.digitalme.cc
 Tags: user, username, display name, login
 Requires at least: 3.0
-Tested up to: 6.8.3
-Stable tag: 3.2.5
+Tested up to: 6.9
+Stable tag: 3.2.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -90,12 +90,23 @@ No complicated settings, no technical headaches - just the username freedom Word
 
 Yes! Username Changer works out of the box with Co-Authors Plus.
 
+== External Services ==
+This plugin optionally sends anonymized usage data to admin.trsplugins.com
+when the site admin explicitly opts in. No data is collected without consent.
+Data sent may include: admin name, email, site URL, WP/PHP version, and
+plugin/theme list depending on the options selected.
+
 == Screenshots ==
 
 1. Settings Panel: The settings panel allows you to configure username rules and message strings.
 2. Changing A Username: Since version 3.0.0, usernames are now changed through the user profile page.
 
 == Changelog ==
+
+= Version 3.2.6 =
+* Added: Optional usage analytics to help improve the plugin (opt-in, disabled by default)
+* Maintenance and stability improvements
+* Tested up to WordPress 6.9.4
 
 = Version 3.2.5 =
 * Maintenance release

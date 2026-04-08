@@ -38,6 +38,7 @@ add_filter( 'username_changer_menu', 'username_changer_add_menu' );
  */
 function username_changer_settings_tabs( $tabs ) {
 	$tabs['settings'] = __( 'Settings', 'username-changer' );
+	$tabs['upgrade']  = __( '⭐ Go Pro', 'username-changer' );
 	$tabs['support']  = __( 'Support', 'username-changer' );
 
 	return $tabs;
@@ -61,6 +62,7 @@ function username_changer_registered_settings_sections( $sections ) {
 				'strings' => __( 'String Settings', 'username-changer' ),
 			)
 		),
+		'upgrade'  => apply_filters( 'username_changer_settings_sections_upgrade', array( 'main' => '' ) ),
 		'support'  => apply_filters( 'username_changer_settings_sections_support', array() ),
 	);
 
@@ -76,7 +78,7 @@ add_filter( 'username_changer_registered_settings_sections', 'username_changer_r
  * @return      array $tabs The updated tabs
  */
 function username_changer_define_unsavable_tabs() {
-	$tabs = array( 'support' );
+	$tabs = array( 'support', 'upgrade' );
 
 	return $tabs;
 }
@@ -246,6 +248,19 @@ function username_changer_registered_settings( $settings ) {
 				),
 			)
 		),
+		'upgrade'  => apply_filters(
+			'username_changer_settings_upgrade',
+			array(
+				'main' => array(
+					array(
+						'id'   => 'upgrade_display',
+						'name' => '',
+						'desc' => '',
+						'type' => 'hook',
+					),
+				),
+			)
+		),
 		'support'  => apply_filters(
 			'username_changer_settings_support',
 			array(
@@ -304,3 +319,73 @@ function username_changer_display_messages_subheader() {
 	<?php
 }
 add_action( 'username_changer_messages_subheader', 'username_changer_display_messages_subheader' );
+
+
+/**
+ * Render the Upgrade to Pro page in the free plugin.
+ *
+ * @since       4.0.0
+ * @return      void
+ */
+function username_changer_display_upgrade_page() {
+	// If pro is already active (pro plugin installed), show a thank you message.
+	if ( function_exists( 'username_changer_is_pro_active' ) && username_changer_is_pro_active() ) {
+		?>
+		<tr valign="top">
+			<td colspan="2">
+				<div style="background:#d4edda;border:1px solid #c3e6cb;border-radius:6px;padding:18px 22px;max-width:700px;">
+					<strong style="font-size:15px;">&#10003; <?php esc_html_e( 'Username Changer Pro is active!', 'username-changer' ); ?></strong>
+					<p style="margin:8px 0 0;"><?php esc_html_e( 'You have access to all Pro features: Bulk Username Updater, Audit Log, and License Management.', 'username-changer' ); ?></p>
+				</div>
+			</td>
+		</tr>
+		<?php
+		return;
+	}
+	?>
+	<tr valign="top">
+		<td colspan="2" style="padding:0;">
+
+			<!-- Hero Banner -->
+			<div style="background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;border-radius:8px;padding:28px 30px;margin-bottom:24px;max-width:740px;">
+				<h2 style="margin:0 0 8px;font-size:22px;color:#fff;"><?php esc_html_e( 'Upgrade to Username Changer Pro', 'username-changer' ); ?></h2>
+				<p style="margin:0 0 18px;font-size:14px;opacity:.9;"><?php esc_html_e( 'Powerful tools for agencies, membership sites, and security-conscious WordPress admins.', 'username-changer' ); ?></p>
+				<a href="https://www.wpusernamechange.com/" target="_blank" rel="noopener" class="button" style="background:#fff;color:#764ba2;border:none;font-weight:700;font-size:14px;padding:8px 20px;height:auto;line-height:1.5;">
+					<?php esc_html_e( 'Get Username Changer Pro &rarr;', 'username-changer' ); ?>
+				</a>
+			</div>
+
+			<!-- Feature Cards -->
+			<div style="display:flex;flex-wrap:wrap;gap:18px;max-width:740px;margin-bottom:24px;">
+
+				<div style="flex:1;min-width:280px;background:#fff;border:1px solid #ddd;border-radius:6px;padding:20px 22px;">
+					<h3 style="margin:0 0 8px;font-size:15px;">&#128196; <?php esc_html_e( 'Bulk Username Updater', 'username-changer' ); ?></h3>
+					<p style="color:#555;font-size:13px;margin:0;"><?php esc_html_e( 'Update hundreds of usernames at once using inline editing or CSV import/export. Perfect for site migrations and agency work.', 'username-changer' ); ?></p>
+				</div>
+
+				<div style="flex:1;min-width:280px;background:#fff;border:1px solid #ddd;border-radius:6px;padding:20px 22px;">
+					<h3 style="margin:0 0 8px;font-size:15px;">&#128203; <?php esc_html_e( 'Audit Log', 'username-changer' ); ?></h3>
+					<p style="color:#555;font-size:13px;margin:0;"><?php esc_html_e( 'Track every username change with a full audit trail — who changed what, when, and from which IP address. Exportable as CSV.', 'username-changer' ); ?></p>
+				</div>
+
+				<div style="flex:1;min-width:280px;background:#fff;border:1px solid #ddd;border-radius:6px;padding:20px 22px;">
+					<h3 style="margin:0 0 8px;font-size:15px;">&#128274; <?php esc_html_e( 'License Management', 'username-changer' ); ?></h3>
+					<p style="color:#555;font-size:13px;margin:0;"><?php esc_html_e( 'Activate your license on a per-site basis with automatic background verification.', 'username-changer' ); ?></p>
+				</div>
+
+			</div>
+
+			<!-- CTA -->
+			<p style="max-width:740px;">
+				<a href="https://www.wpusernamechange.com/" target="_blank" rel="noopener" class="button button-primary button-hero">
+					<?php esc_html_e( 'Get Username Changer Pro', 'username-changer' ); ?>
+				</a>
+			</p>
+
+		</td>
+	</tr>
+	<?php
+}
+add_action( 'username_changer_upgrade_display', 'username_changer_display_upgrade_page' );
+
+

@@ -5,10 +5,10 @@
  * Description: Change usernames easily
  * Author: DigitalME
  * Author URI: https://www.digitalme.cc
- * Version: 3.2.5
+ * Version: 3.2.6
  * Text Domain: username-changer
  * Domain Path: languages
- * Tested up to: 6.8.3
+ * Tested up to: 6.9
  * Requires at least: 3.0
  */
 
@@ -118,7 +118,7 @@ if ( ! class_exists( 'Username_Changer' ) ) {
 		private function setup_constants() {
 			// Plugin version.
 			if ( ! defined( 'USERNAME_CHANGER_VER' ) ) {
-				define( 'USERNAME_CHANGER_VER', '3.2.1' );
+			define( 'USERNAME_CHANGER_VER', '3.2.6' );
 			}
 
 			// Plugin path.
@@ -235,5 +235,27 @@ function username_changer() {
 	return Username_Changer::instance();
 }
 
+
+/**
+ * Check if the Pro license is active.
+ *
+ * @since  4.0.0
+ * @return bool
+ */
+function username_changer_is_pro_active() {
+	return (bool) apply_filters( 'username_changer_is_pro_active', false );
+}
+
+
 // Get things started.
 Username_Changer();
+
+/* Opt-in */
+require_once dirname( __FILE__ ) . '/includes/class-optin.php';
+add_action( 'plugins_loaded', function() {
+	UC_Optin::instance();
+} );
+register_activation_hook( __FILE__, function() {
+	require_once dirname( __FILE__ ) . '/includes/class-optin.php';
+	UC_Optin::instance()->on_activation();
+} );

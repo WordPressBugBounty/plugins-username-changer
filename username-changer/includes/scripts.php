@@ -13,6 +13,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 /**
+ * Load frontend scripts
+ *
+ * @since       3.2.3
+ * @return      void
+ */
+function username_changer_frontend_scripts() {
+	wp_enqueue_style( 'username-changer', USERNAME_CHANGER_URL . 'assets/css/frontend.css', array(), USERNAME_CHANGER_VER );
+}
+add_action( 'wp_enqueue_scripts', 'username_changer_frontend_scripts' );
+
+/**
  * Load admin scripts
  *
  * @since       1.0.0
