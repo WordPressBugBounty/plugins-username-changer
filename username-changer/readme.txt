@@ -4,7 +4,7 @@ Plugin URI: https://www.digitalme.cc
 Tags: user, username, display name, login
 Requires at least: 3.0
 Tested up to: 6.8.3
-Stable tag: 3.2.4
+Stable tag: 3.2.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -97,9 +97,8 @@ Yes! Username Changer works out of the box with Co-Authors Plus.
 
 == Changelog ==
 
-= Version 3.2.4 =
-* Framework upgrades
-* Various bug fixes
+= Version 3.2.5 =
+* Maintenance release
 
 = Version 3.2.3 =
 * Added: DigitalME team as plugin contributors
