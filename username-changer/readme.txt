@@ -1,10 +1,10 @@
 === Username Changer ===
 Contributors: digitalmeactivecampaign, ympno
-Plugin URI: https://www.digitalme.cc
+Plugin URI: https://wpusernamechange.com
 Tags: user, username, display name, login
 Requires at least: 3.0
 Tested up to: 6.9
-Stable tag: 3.2.6
+Stable tag: 3.2.7
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,6 +13,8 @@ Unlock the power to change WordPress usernames with complete security and data i
 == Description ==
 
 Finally fix WordPress's biggest username limitation! WordPress permanently locks usernames by default, but Username Changer breaks through this restriction, giving you complete control over user identities on your WordPress site.
+
+By [TRS Plugins](https://trsplugins.com/) | [Docs](https://demo.wpusernamechange.com) | [Privacy Policy](https://trsplugins.com/privacy-policy/)
 
 **Why You Need This Plugin:**
 
@@ -91,10 +93,11 @@ No complicated settings, no technical headaches - just the username freedom Word
 Yes! Username Changer works out of the box with Co-Authors Plus.
 
 == External Services ==
-This plugin optionally sends anonymized usage data to admin.trsplugins.com
+This plugin optionally sends usage data to TRS Plugins
 when the site admin explicitly opts in. No data is collected without consent.
 Data sent may include: admin name, email, site URL, WP/PHP version, and
 plugin/theme list depending on the options selected.
+Privacy policy: https://trsplugins.com/privacy-policy/
 
 == Screenshots ==
 
@@ -102,6 +105,11 @@ plugin/theme list depending on the options selected.
 2. Changing A Username: Since version 3.0.0, usernames are now changed through the user profile page.
 
 == Changelog ==
+
+= Version 3.2.7 =
+* Updated: Plugin homepage and branding to TRS Plugins
+* Added: Privacy policy link
+* Maintenance and stability improvements
 
 = Version 3.2.6 =
 * Added: Optional usage analytics to help improve the plugin (opt-in, disabled by default)
@@ -180,11 +188,3 @@ plugin/theme list depending on the options selected.
 
 = Version 1.0 =
 * Initial release
-
-== Upgrade Notice ==
-
-= 3.2.3 =
-This update adds DigitalME as contributors, updates the plugin URI, refreshes branding assets, and confirms compatibility with WordPress 6.8.3. All functionality remains unchanged.
-
-= 3.2.2 =
-General maintenance release with code cleanup and updated settings library.

@@ -91,14 +91,11 @@ if ( ! class_exists( 'UC_Optin' ) ) {
 			if ( ! current_user_can( 'manage_options' ) ) {
 				return;
 			}
-			$screen = get_current_screen();
-			if ( $screen && ! in_array( $screen->base, array( 'dashboard', 'plugins', 'users_page_username-changer', 'users_page_username_changer' ), true ) ) {
-				return;
-			}
 			$this->render_modal();
 		}
 
 		private function render_modal() {
+			$plugin_name = 'Username Changer';
 			$nonce = wp_create_nonce( 'uc_optin_nonce' );
 			?>
 			<div id="uc-optin-overlay" style="position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:99999;display:flex;align-items:center;justify-content:center;">
@@ -106,9 +103,9 @@ if ( ! class_exists( 'UC_Optin' ) ) {
 
 					<!-- Header -->
 					<div style="padding:20px 24px 0;display:flex;justify-content:space-between;align-items:center;">
-						<strong style="font-size:15px;text-transform:uppercase;letter-spacing:.5px;">OPT IN</strong>
+						<strong style="font-size:15px;letter-spacing:.2px;"><?php echo esc_html( sprintf( 'Opt-In for %s', $plugin_name ) ); ?></strong>
 						<button id="uc-optin-close" style="background:none;border:none;cursor:pointer;font-size:20px;color:#999;line-height:1;" aria-label="Close">&times;</button>
-					</div>				<p style="margin:10px 24px 0;font-size:13px;color:#555;">Get exclusive features, see new deals and be the first to know on new things <a href="https://trsplugins.com" target="_blank" style="color:#2196f3;text-decoration:none;">TRSPlugins.com</a> is building.</p>
+					</div>				<p style="margin:10px 24px 0;font-size:13px;color:#555;">Choose which data you'd like to share with us. Opting in is voluntary. See our <a href="https://trsplugins.com/privacy-policy" target="_blank" rel="noopener noreferrer" style="color:#2196f3;text-decoration:none;">Privacy Policy</a>.</p>
 					<!-- Body -->
 					<div style="padding:16px 24px 0;">
 
@@ -163,10 +160,10 @@ if ( ! class_exists( 'UC_Optin' ) ) {
 
 					<!-- Footer -->
 					<div style="padding:0 24px 20px;display:flex;justify-content:flex-end;gap:10px;border-top:1px solid #f0f0f0;padding-top:16px;">
-						<button id="uc-optin-skip" style="padding:8px 16px;background:none;border:1px solid #ccc;border-radius:4px;cursor:pointer;font-size:13px;color:#555;">
+						<button id="uc-optin-skip" style="padding:8px 16px;background:#d63638;color:#fff;border:1px solid #d63638;border-radius:4px;cursor:pointer;font-size:13px;font-weight:600;">
 							Skip
 						</button>
-						<button id="uc-optin-allow" style="padding:8px 20px;background:#2196f3;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:13px;font-weight:600;">
+						<button id="uc-optin-allow" style="padding:8px 20px;background:#2e7d32;color:#fff;border:1px solid #2e7d32;border-radius:4px;cursor:pointer;font-size:13px;font-weight:600;">
 							Allow
 						</button>
 					</div>

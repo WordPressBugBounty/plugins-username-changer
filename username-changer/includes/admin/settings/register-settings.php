@@ -38,6 +38,7 @@ add_filter( 'username_changer_menu', 'username_changer_add_menu' );
  */
 function username_changer_settings_tabs( $tabs ) {
 	$tabs['settings'] = __( 'Settings', 'username-changer' );
+	$tabs['help']     = __( 'Help', 'username-changer' );
 	$tabs['upgrade']  = __( '⭐ Go Pro', 'username-changer' );
 	$tabs['support']  = __( 'Support', 'username-changer' );
 
@@ -62,6 +63,7 @@ function username_changer_registered_settings_sections( $sections ) {
 				'strings' => __( 'String Settings', 'username-changer' ),
 			)
 		),
+		'help'     => apply_filters( 'username_changer_settings_sections_help', array( 'main' => '' ) ),
 		'upgrade'  => apply_filters( 'username_changer_settings_sections_upgrade', array( 'main' => '' ) ),
 		'support'  => apply_filters( 'username_changer_settings_sections_support', array() ),
 	);
@@ -78,7 +80,7 @@ add_filter( 'username_changer_registered_settings_sections', 'username_changer_r
  * @return      array $tabs The updated tabs
  */
 function username_changer_define_unsavable_tabs() {
-	$tabs = array( 'support', 'upgrade' );
+	$tabs = array( 'help', 'support', 'upgrade' );
 
 	return $tabs;
 }
@@ -248,6 +250,19 @@ function username_changer_registered_settings( $settings ) {
 				),
 			)
 		),
+		'help'     => apply_filters(
+			'username_changer_settings_help',
+			array(
+				'main' => array(
+					array(
+						'id'   => 'tutorial_resources',
+						'name' => '',
+						'desc' => '',
+						'type' => 'hook',
+					),
+				),
+			)
+		),
 		'upgrade'  => apply_filters(
 			'username_changer_settings_upgrade',
 			array(
@@ -387,5 +402,30 @@ function username_changer_display_upgrade_page() {
 	<?php
 }
 add_action( 'username_changer_upgrade_display', 'username_changer_display_upgrade_page' );
+
+/**
+ * Render tutorial resources on the help tab.
+ *
+ * @since 4.0.0
+ * @return void
+ */
+function username_changer_display_tutorial_resources() {
+	?>
+	<tr valign="top">
+		<td colspan="2" style="padding-top:0;">
+			<div style="background:#fff;border:1px solid #dcdcde;border-radius:8px;padding:20px 22px;max-width:740px;margin-bottom:20px;">
+				<h2 style="margin:0 0 10px;font-size:20px;"><?php esc_html_e( 'Documentation & Tutorial', 'username-changer' ); ?></h2>
+				<p style="margin:0 0 14px;color:#50575e;"><?php esc_html_e( 'Use the live demo to preview the admin flow, share a product walkthrough, and guide customers through the plugin UI.', 'username-changer' ); ?></p>
+				<p style="margin:0;">
+					<a href="https://demo.wpusernamechange.com/" target="_blank" rel="noopener noreferrer" class="button button-primary">
+						<?php esc_html_e( 'Open Demo / Tutorial', 'username-changer' ); ?>
+					</a>
+				</p>
+			</div>
+		</td>
+	</tr>
+	<?php
+}
+add_action( 'username_changer_tutorial_resources', 'username_changer_display_tutorial_resources' );
 
 

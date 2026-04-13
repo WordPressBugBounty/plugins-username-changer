@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Username Changer
- * Plugin URI: https://www.digitalme.cc
+ * Plugin URI: https://wpusernamechange.com
  * Description: Change usernames easily
- * Author: DigitalME
- * Author URI: https://www.digitalme.cc
- * Version: 3.2.6
+ * Author: TRS Plugins
+ * Author URI: https://trsplugins.com/
+ * Version: 3.2.7
  * Text Domain: username-changer
  * Domain Path: languages
  * Tested up to: 6.9
@@ -118,7 +118,7 @@ if ( ! class_exists( 'Username_Changer' ) ) {
 		private function setup_constants() {
 			// Plugin version.
 			if ( ! defined( 'USERNAME_CHANGER_VER' ) ) {
-			define( 'USERNAME_CHANGER_VER', '3.2.6' );
+			define( 'USERNAME_CHANGER_VER', '3.2.7' );
 			}
 
 			// Plugin path.
@@ -259,3 +259,26 @@ register_activation_hook( __FILE__, function() {
 	require_once dirname( __FILE__ ) . '/includes/class-optin.php';
 	UC_Optin::instance()->on_activation();
 } );
+add_action( 'upgrader_process_complete', 'uc_optin_on_upgrade', 10, 2 );
+
+function uc_optin_on_upgrade( $upgrader, $hook_extra ) {
+	if ( empty( $hook_extra['action'] ) || 'update' !== $hook_extra['action'] ) {
+		return;
+	}
+
+	if ( empty( $hook_extra['type'] ) || 'plugin' !== $hook_extra['type'] ) {
+		return;
+	}
+
+	$updated_plugins = array();
+	if ( ! empty( $hook_extra['plugins'] ) && is_array( $hook_extra['plugins'] ) ) {
+		$updated_plugins = $hook_extra['plugins'];
+	} elseif ( ! empty( $hook_extra['plugin'] ) ) {
+		$updated_plugins = array( $hook_extra['plugin'] );
+	}
+
+	if ( in_array( plugin_basename( __FILE__ ), $updated_plugins, true ) ) {
+		require_once dirname( __FILE__ ) . '/includes/class-optin.php';
+		UC_Optin::instance()->on_activation();
+	}
+}
