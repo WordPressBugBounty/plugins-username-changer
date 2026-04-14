@@ -1,3 +1,4 @@
+
 === Username Changer ===
 Contributors: digitalmeactivecampaign, ympno
 Plugin URI: https://wpusernamechange.com
@@ -101,6 +102,30 @@ No complicated settings, no technical headaches.
 = Is Username Changer compatible with <a href="https://wordpress.org/plugins/co-authors-plus/">Co-Authors Plus</a>? =
  
 Yes! Username Changer works out of the box with Co-Authors Plus.
+ 
+= Will changing a username affect the user's posts, comments, or data? =
+ 
+No. Username Changer only updates the login name. All posts, comments, metadata, and user data remain fully intact.
+ 
+= Can I change the "admin" username? =
+ 
+Yes. Changing the default "admin" username is one of the most common use cases and is fully supported.
+ 
+= Can users change their own username? =
+ 
+By default only administrators can change usernames. The Pro version adds configurable options for allowing users to manage their own.
+ 
+= Is it compatible with WooCommerce? =
+ 
+Yes. Username Changer works alongside WooCommerce without affecting orders, accounts, or customer data.
+ 
+= What happens if I choose a username that already exists? =
+ 
+The plugin validates the new username before saving and will prevent duplicates.
+ 
+= Is it compatible with multisite? =
+ 
+Yes, Username Changer works across WordPress Multisite networks.
  
 == External Services ==
 This plugin optionally sends usage data to TRS Plugins
