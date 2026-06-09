@@ -5,7 +5,7 @@
  * Description: Change usernames easily
  * Author: TRS Plugins
  * Author URI: https://trsplugins.com/
- * Version: 3.2.8
+ * Version: 3.2.9
  * Text Domain: username-changer
  * Domain Path: languages
  * Tested up to: 6.9
@@ -118,7 +118,7 @@ if ( ! class_exists( 'Username_Changer' ) ) {
 		private function setup_constants() {
 			// Plugin version.
 			if ( ! defined( 'USERNAME_CHANGER_VER' ) ) {
-			define( 'USERNAME_CHANGER_VER', '3.2.7' );
+			define( 'USERNAME_CHANGER_VER', '3.2.9' );
 			}
 
 			// Plugin path.

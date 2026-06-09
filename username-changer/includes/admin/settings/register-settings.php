@@ -279,17 +279,19 @@ function username_changer_registered_settings( $settings ) {
 		'support'  => apply_filters(
 			'username_changer_settings_support',
 			array(
-				array(
-					'id'   => 'support_header',
-					'name' => __( 'Username Changer Support', 'username-changer' ),
-					'desc' => '',
-					'type' => 'header',
-				),
-				array(
-					'id'   => 'system_info',
-					'name' => __( 'System Info', 'username-changer' ),
-					'desc' => '',
-					'type' => 'sysinfo',
+				'main' => array(
+					array(
+						'id'   => 'support_header',
+						'name' => __( 'Username Changer Support', 'username-changer' ),
+						'desc' => '',
+						'type' => 'header',
+					),
+					array(
+						'id'   => 'system_info',
+						'name' => __( 'System Info', 'username-changer' ),
+						'desc' => '',
+						'type' => 'sysinfo',
+					),
 				),
 			)
 		),
