@@ -3,8 +3,8 @@ Contributors: digitalmeactivecampaign, ympno
 Plugin URI: https://wpusernamechange.com
 Tags: user, username, display name, login
 Requires at least: 3.0
-Tested up to: 6.9
-Stable tag: 3.2.9
+Tested up to: 7.1
+Stable tag: 3.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
  
@@ -115,6 +115,11 @@ Privacy policy: https://trsplugins.com/privacy-policy/
 2. Changing A Username: Since version 3.0.0, usernames are now changed through the user profile page.
  
 == Changelog ==
+
+= 3.3.0 =
+* Added: DigitalME plugin setup wizard and promotional admin banners
+* Updated: Rebranded to DigitalME
+* Updated: Tested up to WordPress 7.1
 
 = Version 3.2.9 =
 * Fixed: Illegal offset PHP errors when saving settings on the support tab
