@@ -4,7 +4,7 @@ Plugin URI: https://wpusernamechange.com
 Tags: user, username, display name, login
 Requires at least: 3.0
 Tested up to: 7.1
-Stable tag: 3.3.0
+Stable tag: 3.3.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
  
@@ -116,9 +116,8 @@ Privacy policy: https://trsplugins.com/privacy-policy/
  
 == Changelog ==
 
-= 3.3.0 =
-* Added: DigitalME plugin setup wizard and promotional admin banners
-* Updated: Rebranded to DigitalME
+= 3.3.1 =
+* Removed: Promotional admin banners and setup wizard
 * Updated: Tested up to WordPress 7.1
 
 = Version 3.2.9 =
